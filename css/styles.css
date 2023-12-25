@@ -1,0 +1,837 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, ol, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto",sans-serif;
+    color:#434455;
+    background-color: #ffffff; 
+}
+
+img {
+    display: block;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;  /*вирівнює елементи всередині рядків: Елементи розташовані по центру контейнера*/
+    justify-content: space-between; /*Флекси рівномірно розподіляються по всьому рядку. Перший і останній флекс притискаються до відповідних країв контейнера*/
+    max-width: 1158px;
+    padding: 0 15px;
+    margin: 0 auto;
+    Border: 0px, 0px, 1px, 0px;
+    /*border-bottom: 1px solid #e7e9fc; */
+  }
+
+.header-nav {
+    display: flex;
+    align-items: center;
+}
+.header {
+    border-bottom: 1px solid #e7e9fc;
+    box-shadow:  
+    0px 2px 1px rgba(46, 47, 66, 0.08), 
+    0px 1px 1px rgba(46, 47, 66, 0.16), 
+    0px 1px 6px rgba(46, 47, 66, 0.08); 
+}
+
+.container {
+    max-width: 1158px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.17;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #4d5ae5;
+    text-decoration:none;
+    margin-right: 76px; 
+}
+
+.logo-span-header {
+    color: #2e2f42;
+}
+    /*margin-right: 76px; 07.12.2023 перевірка ментора*/  
+
+
+.menu-nav, 
+.menu-addr,
+.menu-visio,
+.menu-team,
+.menu-port,
+.menu-team-social {
+    list-style:none;
+}
+
+.menu-nav .menu {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    text-decoration:none;
+    padding: 24px 0;   
+    display: block;    /*07.12.2023 перевірка ментора */
+    position: relative; /*11-12-2023*/
+    color: #2e2f42; 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu.current {
+    color:#404bbf;
+}
+
+.menu.current::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 4px;
+    background-color: #404bbf;
+    border-radius: 2px;
+    width: 100%;
+}
+
+/*.menu::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 4px;
+    background-color: #404bbf;
+    border-radius: 2px;
+    width: 100%;
+}mentor 14-12-2023 */ 
+
+.menu-nav .menu:hover,
+.menu-nav .menu:focus {
+    color: #404bbf;    
+}
+
+
+.menu-address {
+    font-style: normal;
+}
+
+.menu-addr .email-tel {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal; 
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #434455;    
+    text-decoration:none;
+    padding-top: 24px;    /* 06-12*/
+    padding-bottom: 24px; /* 06-12*/
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-addr .email-tel:hover,
+.menu-addr .email-tel:focus {
+    color: #404bbf;    
+}
+
+.menu-nav {
+    display: flex;
+    gap: 40px;     
+}
+
+.menu-addr {
+    display: flex;
+    gap: 40px;
+}
+
+.about {
+    background-color: #2E2F42;
+    text-align: center;
+    height: 600px;
+    padding: 188px 0;
+    margin: 0 auto;
+    background-image:  
+    linear-gradient(rgba(46, 47, 66, 0.7), 
+    rgba(46, 47, 66, 0.7)), 
+    url(../images/img-name.jpg); /* для реалізації фонового зображення з затемненням (багатошаровий фон з градієнтом)   */
+    max-width: 1440px; /*визначення ширини секції*/
+    background-repeat: no-repeat; /*для уникнення повторення фонового зображення відносно його власної ширини та висоти*/
+    background-position: center; /*вирівнювання фонового зображення відносно його власної ширини та висоти*/
+    background-size: cover; /*для позиціонування зображення на всю площу фону елемента*/
+}   
+/*  забрати margin-bottom: 120px; 07.12.2023 перевірка ментора
+забрати     linear-gradient(....) 
+ background-color: #2E2F42; перевірка ментора 13-12-2023*/
+
+.about-title {
+    font-size: 56px;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    line-height: 1.07;
+    letter-spacing: 0.02em;
+    color: white;
+    max-width: 496px;   /* 06-12 для визначення ширини тексту в заголовка*/  
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 48px;   /*07.12.2023 перевірка ментора*/
+}
+
+.about button {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: white;
+    background-color: #4d5ae5;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    padding: 16px 32 px;
+    display: block;  /* 06-12 для можливості центрувати кнопку через властивість margin?*/
+    min-width: 169px;   /* 06-12 мінімальна ширина кнопки*/
+    height: 56px;       /* 06-12 висота кнопки*/
+    border: none;       /* 06-12 для вимкнення стандартного оформлення кнопки*/
+    border-radius: 4px; /* 06-12 заокруглення у кнопки*/
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); /*плавної зміни кольору фону елемента*/
+}
+
+button:hover, 
+button:focus {
+    background-color: #404bbf;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+} 
+
+.visio {
+    padding: 120px 0;
+ }
+ /*width: 1128px; margin-bottom: 120px; 07.12.2023 перевірка ментора*/
+
+.menu-visio {
+    display: flex;  /*06-12 для розміщення елементів списку по горизонталі в рядок*/
+    gap: 24px;      /*06-12 розмір відступів між елементами списку*/
+}
+
+.menu-visio-li {
+    width: calc((100% - 72px) / 4);
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+}
+
+/*svg {
+    fill: #4D5AE5;
+
+}*/
+
+.svg-visio {
+    width: 64;
+    height: 64;
+}
+
+.visio-ul-li-div {
+    border-radius: 4px;
+    border: 1px;
+    border-color: #8e8f99;
+    border-style: solid;
+    margin-bottom: 8px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    background-color: #f4f4fd;
+}
+
+
+/* h3 заголовок */
+.h-visio {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+    margin-bottom: 8px;  /*06-12 відступ між заголовком і параграфом*/
+}
+
+.p-visio {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #434455;
+    margin: 0;
+}
+/*margin-top: 0;  07.12.2023 перевірка ментора*/
+
+.team {
+    background-color: #F4F4FD;
+    padding: 120px 0;
+}
+/*    margin-bottom: 120px; 07.12.2023 перевірка ментора*/
+
+.menu-team {
+    display: flex;  /*06-12 для розміщення елементів списку по горизонталі в рядок*/
+    gap: 24px;      /*06-12 розмір відступів між елементами списку*/
+}
+
+/*заголовок h2*/
+.team-h {
+    line-height: 1.11;
+    text-transform: capitalize;
+    margin-bottom: 72px; /*06-12 відступ між h2 заголовком і параграфом*/
+}
+
+.team p {
+    text-align: center;
+}
+
+.team-li {
+    background-color: #FFFFFF;
+    border-radius: 0px 0px 4px 4px;
+    width: calc((100% - 72px) / 4); 
+    box-shadow: 
+    0px 1px 6px rgba(46, 47, 66, 0.08), 
+    0px 1px 1px rgba(46, 47, 66, 0.16), 
+    0px 2px 1px rgba(46, 47, 66, 0.08);  /*визначення тіні для елемента*/
+}
+
+.team-li-div {
+    padding: 32px 0;
+}
+
+/* h3 заголовок  */
+.h-team {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 8px; /*06-12 відступ від заголовка до параграфу*/
+}
+
+.p-team {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #434455;
+    text-align: center;
+    margin: 0 0 8px;
+}
+/*4hw   */
+.menu-team-social {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+
+.svg-team {
+    fill: #f4f4fd;
+}
+
+.team-social-li {    
+        width: 40px;
+        height: 40px;
+}
+
+.team-social-li-a {
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-social-li-a:hover,
+.team-social-li-a:focus {
+    background-color: #404bbf; 
+}
+
+.port {
+    padding-top: 120px; 
+    padding-bottom: 120px; 
+}
+/*    margin-bottom: 120px; 07.12.2023 перевірка ментора*/
+
+/* h2 заголовок */
+.port-h {
+    line-height: 1.11;
+    text-transform: capitalize;
+    margin-bottom: 72px;
+}
+
+/* h3 заголовок */
+.h-port {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #2e2f42;  
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+}
+
+.p-port {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #434455;
+    margin: 0;
+}
+
+.menu-port {
+    display: flex;
+    flex-wrap: wrap; /*для переносу елементів списку на новий рядок якщо їм не вистачає місця в попередньому */
+    column-gap: 24px; /* горизонтальних відступів між пунктами списку*/                
+    row-gap: 48px;  /*вертикальних відступів між елементами списку якщо вони переносяться на новий рядок*/
+}
+
+.menu-port-li {
+    width: calc((100% - 48px) / 3); 
+    transition: 
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+}
+/*11-12-2023*/
+.menu-port-li:hover {
+    box-shadow: 
+    0px 1px 6px rgba(46, 47, 66, 0.08), 
+    0px 1px 1px rgba(46, 47, 66, 0.16), 
+    0px 2px 1px rgba(46, 47, 66, 0.08);
+    transform: translateY(0%);
+}
+
+.menu-port-li:hover .menu-port-li-div-img-p {
+    transform: translateY(0%);
+}
+
+.menu-port-li-div{
+    padding: 32px 16px; 
+    border: 1px solid #e7e9fc;
+    border-top: none; 
+}
+
+.menu-port-li-div-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-port-li-div-img-p {
+    position: absolute;
+    top: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #f4f4fd;
+    padding: 40px 32px;
+    background-color: #4d5ae5;
+    height: 100%;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+    margin: 0;
+}
+
+.footer-text {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #f4f4fd;
+    letter-spacing: 0.02em;
+    max-width: 264px;
+    margin: 0;
+}
+
+.footer {
+    padding: 100px 0;
+    background-color: #2E2F42;
+}
+
+.logo-a-footer {
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.17;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #4d5ae5;
+    text-decoration:none;
+    margin-bottom: 16px; 
+    display: inline-block; /*для додавання посиланню блочних властивостей*/
+}
+
+.logo-span-footer {
+    color: #f4f4fd;
+}
+
+.container-footer {
+    display: flex;
+    align-items: baseline;
+}
+
+.container-footer-div {
+    margin-right: 120px;
+}
+    /*margin: 0 auto;
+    max-width: 1158px;
+    padding: 0 15px; все це є в класі .container*/
+
+.footer-div-p-social,
+.footer-div-form-group-p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    margin: 0;     /*12-12-2023*/
+    margin-bottom: 16px;
+}
+
+.menu-footer-social {
+    display: flex;
+    gap: 16px;
+    list-style: none;  /*12-12-2023*/
+}
+
+.footer-social-li {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-social-li-a {
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    transition: 
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-li-a:hover,
+.footer-social-li-a:focus {
+    background-color: #31d0aa; 
+}
+
+.svg-footer {
+    fill: #f4f4fd;
+}
+
+/*  5hw  */
+.order-form {
+    display: flex; 
+    gap: 24px;
+}
+
+.order-form-input {
+    width: 264px;
+    height: 40px;
+    border: 1px solid #ffffff;
+    background-color: transparent;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    padding-left: 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+/*.footer-div-form-group-p {
+see 511                    }*/
+
+.order-form-button {
+    min-width: 165px;
+    height: 40px;
+    display: flex;
+    justify-content: center; /*для вирівнювання контенту по горизонталі*/
+    align-items: center; /*для вирівнювання контенту по вертикалі*/
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #4D5AE5;
+    border: none; 
+    border-radius: 4px;
+    /*padding: 8px 24px;*/
+}
+
+/* footer знак тг на кнопці */
+.order-form-button-svg {
+    margin-left: 16px;
+    fill: white;
+}
+
+.container-footer-form-group {
+    margin-left: auto;
+}
+
+/* вікно на всю ширину основного банера*/
+/*div - контейнер для модального вікна*/
+.modal {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 47, 66, 0.4);
+    transition: 
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;    
+    visibility: hidden;
+}
+
+.modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* вікно input для вводу ПІБ - тел - емейл  "Leave your contacts" */
+/* div - модальне вікно*/
+.modal-div {
+    position: absolute;
+    /*Абсолютно позиціонуємо елемент відносно предка.*/
+    top: 50%; 
+    left: 50%; 
+    /*Задаємо елементу властивості top і left 
+    зі значенням 50%, щоб розташувати 
+    верхній лівий кут елемента рівно по центру предка.*/
+    transform: translate(-50%, -50%) scale(1); 
+    /*Задаємо елементу негативне зміщення (translate) 
+    по 50% висоти і ширини. Це змістить елемент 
+    вгору і вліво і відцентрує всередині предка.*/
+    width: 408px;      /*see Figma - Modal bg*/
+    min-height: 584px; /*see Figma - Modal bg*/
+    background: #fcfcfc; /*see Figma - Modal bg*/
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 
+    0px 1px 3px rgba(0, 0, 0, 0.12), 
+    0px 2px 1px rgba(0, 0, 0, 0.2); /*see Figma - Modal bg*/
+    border-radius: 4px; /*see Figma - Modal bg*/
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+    padding: 72px 24px 24px 24px;
+}
+
+/* кнопка Х - закрити вікно*/
+.modal-button-close {
+    position: absolute; 
+    top: 24px; 
+    right: 24px;
+    width: 24px;
+    height: 24px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; /*для вирівнювання дочірнього елемента по вертикалі*/
+    justify-content: center; /*для вирівнювання дочірнього елемента по горизонталі*/
+    background-color: #e7e9fc; /*колір фону кнопки*/
+    border: 1px solid rgba(0, 0, 0, 0.1); /*колір і тд межі навколо елемента*/
+    padding: 0; 
+    cursor: pointer; /*визначення стилю курсору*/
+    transition: 
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1); /*анімаційний ефект для зміни значень властивостей стилю*/
+}
+
+.modal-button-close:hover {
+    background-color: #404bbf; 
+    border: none; 
+} 
+
+.modal-button-close:focus {
+    border: none; 
+}
+
+.modal-button-close-svg {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+    fill: #2e2f42;
+}
+
+.modal-button-close:hover .modal-button-close-svg {
+    fill: #ffffff;
+}
+
+.modal-button-close:focus .modal-button-close-svg {
+    fill: #ffffff;
+}
+
+.modal-p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #2E2F42;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
+.modal-form-div {
+    margin-bottom: 8px;
+}
+
+.modal-form-div-l,
+.modal-form-div-phone,
+.modal-form-div-email {
+    font-size: 12px;
+    line-height: 1.17; 
+    letter-spacing: 0.04em;
+    color: #8e8f99;
+    display: block;
+    margin-bottom: 4px; 
+}
+
+.modal-form-div-pers {
+    position: relative;
+}
+
+.input-pers {
+    width: 100%;
+    height: 40px;
+    border: 1px solid rgba(46, 47, 66, 0.4); 
+    border-radius: 4px;
+    background-color: transparent; 
+    padding-left: 38px;
+    outline: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-pers:focus {
+    border-color: #4D5AE5;
+}
+/* 21-12-2023   колір іконок *************/
+.modal-form-div-svg {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: #2e2f42;  
+}
+
+.input-pers:focus + .modal-form-div-svg {
+    fill: #4D5AE5;
+}
+
+/**********************************/
+
+
+.modal-form-div-comment {
+    margin-bottom: 16px;
+}
+
+.modal-form-comment-textarea {
+    width: 100%;
+    height: 120px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: rgba(46, 47, 66, 0.4);
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px; 
+    background-color: transparent; 
+    padding: 8px 16px; 
+    outline: transparent;
+    resize: none; 
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-comment-textarea:focus {
+    border-color: #4D5AE5; 
+}
+
+.modal-form-checkbox {
+    margin-bottom: 24px;
+}
+
+.label-checkbox {
+    font-size: 12px; 
+    line-height: 1.17; 
+    letter-spacing: 0.04em; 
+    color: #8e8f99; 
+}
+/*квадрат для I accept  - під коментарем*/
+.label-checkbox-span {
+    width: 16px; 
+    height: 16px;
+    border: 1px solid rgba(46, 47, 66, 0.4); 
+    border-radius: 2px; 
+    transition: background-color 250ms 
+        cubic-bezier(0.4, 0, 0.2, 1), 
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    fill: transparent; 
+    margin-right: 8px; /*21-12-2023 ментор - відступ від чекбоксу до слів*/
+}
+
+
+/*input:checked + label > span {} 20-12-2023 slack @sergiy korobka*/
+.input-checkbox:checked + .label-checkbox > .label-checkbox-span {
+    background-color: #404bbf; 
+    border: none; 
+    fill: #F4F4FD; 
+}
+
+.input-checkbox:focus + .label-checkbox > .label-checkbox-span {
+    border-color: #4D5AE5;
+}
+
+.label-checkbox-a {
+    color: #4d5ae5; 
+}
+
+.modal-form-button {
+    display: block;
+    min-width: 169px;
+    height: 56px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    cursor: pointer; 
+    background-color: #4D5AE5;
+    border: none; 
+    border-radius: 4px; 
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 auto;   /*21-12-2021 - центрувати кнопку    */
+}
