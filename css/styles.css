@@ -17,6 +17,10 @@ body {
 
 img {
     display: block;
+    max-width: 100%;   /*ДЗ-6 - для всіх фото, зокрема для секції port
+            Щоб фото розтягувались по контейнеру, і фото 
+            ніколи не вийде за межі свого батьківського елемента*/
+    height: auto;       /*ДЗ-6 */
 }
 
 .header-container {
@@ -43,9 +47,21 @@ img {
 }
 
 .container {
-    max-width: 1158px;
-    padding: 0 15px;
+    max-width: 320px;
+    padding: 0 16px;
     margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    } 
+}   
+@media screen and (min-width: 1158px) {
+    .container {
+        max-width: 1158px;
+        padding: 0 15px;
+    }        
 }
 
 .logo {
@@ -122,6 +138,13 @@ img {
 
 .menu-address {
     font-style: normal;
+    display: none;             /*ДЗ-6 - для мобілки*/
+}
+
+@media screen and (min-width: 768px) {
+    .menu-address {
+        display: block; 
+    }
 }
 
 .menu-addr .email-tel {
@@ -143,8 +166,14 @@ img {
 }
 
 .menu-nav {
-    display: flex;
-    gap: 40px;     
+    gap: 40px;
+    display: none;     /*ДЗ-6 - для мобілки*/
+}
+
+@media screen and (min-width: 768px) {
+    .menu-nav {
+        display: flex; 
+    }
 }
 
 .menu-addr {
@@ -156,23 +185,40 @@ img {
     background-color: #2E2F42;
     text-align: center;
     height: 600px;
-    padding: 188px 0;
+    padding: 72px 0;
     margin: 0 auto;
     background-image:  
     linear-gradient(rgba(46, 47, 66, 0.7), 
     rgba(46, 47, 66, 0.7)), 
-    url(../images/img-name.jpg); /* для реалізації фонового зображення з затемненням (багатошаровий фон з градієнтом)   */
+    url(../images/img-name-320.jpg); /* /*ДЗ-6 - для мобілки , для реалізації фонового зображення з затемненням (багатошаровий фон з градієнтом)   */
     max-width: 1440px; /*визначення ширини секції*/
     background-repeat: no-repeat; /*для уникнення повторення фонового зображення відносно його власної ширини та висоти*/
     background-position: center; /*вирівнювання фонового зображення відносно його власної ширини та висоти*/
     background-size: cover; /*для позиціонування зображення на всю площу фону елемента*/
 }   
-/*  забрати margin-bottom: 120px; 07.12.2023 перевірка ментора
-забрати     linear-gradient(....) 
- background-color: #2E2F42; перевірка ментора 13-12-2023*/
+
+ @media screen and (min-width: 768px) {
+    .about {
+        padding: 112px 0;
+        background-image:  
+            linear-gradient(rgba(46, 47, 66, 0.7), 
+            rgba(46, 47, 66, 0.7)), 
+            url('../images/img-name-768.jpg');
+    }
+ }
+ @media screen and (min-width: 1158px) {
+    .about {
+        padding: 188px 0; 
+        background-image:  
+            linear-gradient(rgba(46, 47, 66, 0.7), 
+            rgba(46, 47, 66, 0.7)), 
+            url('../images/img-name.jpg');
+    }
+ }    
+ 
 
 .about-title {
-    font-size: 56px;
+    font-size: 36px;
     font-weight: 700;
     font-style: normal;
     text-align: center;
@@ -182,8 +228,21 @@ img {
     max-width: 496px;   /* 06-12 для визначення ширини тексту в заголовка*/  
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 48px;   /*07.12.2023 перевірка ментора*/
+    margin-bottom: 72px;   /*ДЗ-6 - для мобілки*/
 }
+
+@media screen and (min-width: 768px) {
+    .about-title {
+        /*font-size: 56px; є вже для планшета*/
+        margin-bottom: 36px;
+    }
+ }
+@media screen and (min-width: 1158px) {
+    .about-title {
+        font-size: 56px;
+        margin-bottom: 48px;
+    }
+ }
 
 .about button {
     font-size: 16px;
@@ -223,17 +282,26 @@ button:focus {
 } 
 
 .visio {
-    padding: 120px 0;
+    padding: 96px 0;
+ }
+
+ @media (min-width: 1158px) {
+    .visio {
+        padding: 120px 0;
+    }
  }
  /*width: 1128px; margin-bottom: 120px; 07.12.2023 перевірка ментора*/
 
 .menu-visio {
     display: flex;  /*06-12 для розміщення елементів списку по горизонталі в рядок*/
-    gap: 24px;      /*06-12 розмір відступів між елементами списку*/
+    gap: 72px 24px;      /*ДЗ-6 для мобілки 72 - відступ між рядками,
+                          і заодно для планшета 24 - відступ між стовпчиками
+                          це - розмір відступів між елементами списку*/
+    flex-direction: column; /*ДЗ-6 - для мобілки розміщення в стовпчик*/
 }
 
 .menu-visio-li {
-    width: calc((100% - 72px) / 4);
+    /*width: calc((100% - 72px) / 4);*/
 }
 
 h2 {
@@ -266,38 +334,74 @@ h2 {
     justify-content: center;
     height: 112px;
     background-color: #f4f4fd;
+    display: none;  /* ДЗ-6 - прописати тут, 
+      щоб перебити вище наведену display:flex; - ряд 313*/
 }
 
+@media screen and (min-width: 1158px) {
+    .visio-ul-li-div {
+        display: block;
+    }
+}
 
 /* h3 заголовок */
 .h-visio {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 36px;    /* ДЗ-6 для мобілки і планшета */
+    font-weight: 700;   /* ДЗ-6 для мобілки і планшета */
+    text-align: center; /* ДЗ-6 для мобілки і планшета */
     line-height: 1.2;
     letter-spacing: 0.02em;
     color: #2e2f42;
     margin-bottom: 8px;  /*06-12 відступ між заголовком і параграфом*/
 }
 
+@media screen and (min-width: 768px) {
+    .h-visio {
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .h-visio {
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
 .p-visio {
     font-size: 16px;
-    font-weight: 400;
+    /*font-weight: 400; ДЗ-6 - закрити для мобілки і планшета */
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
     margin: 0;
+    font-weight: 500; /* ДЗ-6 для мобілки і планшета */
 }
 /*margin-top: 0;  07.12.2023 перевірка ментора*/
 
+@media screen and (min-width: 1158px) {
+    .p-visio {
+        font-weight: 400; /* ДЗ-6 для десктоп - на блендед цього не було */
+    }
+}
+
 .team {
     background-color: #F4F4FD;
-    padding: 120px 0;
+    padding: 96px 0; /* ДЗ-6 для мобілки і планшета */
 }
 /*    margin-bottom: 120px; 07.12.2023 перевірка ментора*/
+
+@media screen and (min-width: 1158px) {
+    .team {
+        padding: 120px 0; /* ДЗ-6 для десктоп */
+    }
+}
 
 .menu-team {
     display: flex;  /*06-12 для розміщення елементів списку по горизонталі в рядок*/
     gap: 24px;      /*06-12 розмір відступів між елементами списку*/
+    flex-direction: column; /* ДЗ-6 для мобілки і планшета */
+    align-items: center;    /* ДЗ-6 для мобілки і планшета */
 }
 
 /*заголовок h2*/
@@ -314,11 +418,12 @@ h2 {
 .team-li {
     background-color: #FFFFFF;
     border-radius: 0px 0px 4px 4px;
-    width: calc((100% - 72px) / 4); 
+    /*width: calc((100% - 72px) / 4); */
     box-shadow: 
     0px 1px 6px rgba(46, 47, 66, 0.08), 
     0px 1px 1px rgba(46, 47, 66, 0.16), 
     0px 2px 1px rgba(46, 47, 66, 0.08);  /*визначення тіні для елемента*/
+    width: 264px;
 }
 
 .team-li-div {
@@ -380,10 +485,15 @@ h2 {
 }
 
 .port {
-    padding-top: 120px; 
-    padding-bottom: 120px; 
+    padding: 96px 0;  /* ДЗ-6 для мобілки і планшета */
 }
 /*    margin-bottom: 120px; 07.12.2023 перевірка ментора*/
+
+@media screen and (min-width: 1158px) {
+    .port {
+        padding: 120px 0; /* ДЗ-6 для десктоп */
+    }
+}
 
 /* h2 заголовок */
 .port-h {
@@ -416,10 +526,11 @@ h2 {
     flex-wrap: wrap; /*для переносу елементів списку на новий рядок якщо їм не вистачає місця в попередньому */
     column-gap: 24px; /* горизонтальних відступів між пунктами списку*/                
     row-gap: 48px;  /*вертикальних відступів між елементами списку якщо вони переносяться на новий рядок*/
+    flex-direction: column;
 }
 
 .menu-port-li {
-    width: calc((100% - 48px) / 3); 
+    /*width: calc((100% - 48px) / 3); */
     transition: 
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
@@ -462,6 +573,8 @@ h2 {
     margin: 0;
 }
 
+/*   footer    */
+
 .footer-text {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -469,13 +582,20 @@ h2 {
     line-height: 1.5;
     color: #f4f4fd;
     letter-spacing: 0.02em;
-    max-width: 264px;
+    /*max-width: 264px;   */   /* ДЗ-6 для мобілки поки забрали*/
     margin: 0;
+    text-align: left;   /* ДЗ-6 для мобілки і планшета */
 }
 
 .footer {
-    padding: 100px 0;
+    padding: 96px 0;    /* ДЗ-6 для мобілки і планшета */
     background-color: #2E2F42;
+}
+
+@media screen and (min-width: 1158px) {
+    .team {
+        padding: 100px 0; /* ДЗ-6 для десктоп */
+    }
 }
 
 .logo-a-footer {
@@ -497,15 +617,23 @@ h2 {
 
 .container-footer {
     display: flex;
-    align-items: baseline;
+    flex-direction: column;    /* ДЗ-6 для мобілки*/
+    /*align-items: baseline;      ДЗ-6 */
+    row-gap: 72px;
 }
 
 .container-footer-div {
-    margin-right: 120px;
+    text-align: center;    /* ДЗ-6 для мобілки - тоді лого стане по центру*/
 }
     /*margin: 0 auto;
     max-width: 1158px;
     padding: 0 15px; все це є в класі .container*/
+
+@media screen and (min-width: 1158px) {
+    .container-footer-div {
+        margin-right: 120px; /* ДЗ-6 для десктоп */
+    }
+}
 
 .footer-div-p-social,
 .footer-div-form-group-p {
@@ -514,14 +642,16 @@ h2 {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #ffffff;
-    margin: 0;     /*12-12-2023*/
+    margin: 0;     
     margin-bottom: 16px;
+    text-align: center;    /* ДЗ-6 для мобілки*/
 }
 
 .menu-footer-social {
     display: flex;
     gap: 16px;
-    list-style: none;  /*12-12-2023*/
+    list-style: none;  
+    justify-content: center;    /* ДЗ-6 для мобілки*/
 }
 
 .footer-social-li {
@@ -553,11 +683,15 @@ h2 {
 /*  5hw  */
 .order-form {
     display: flex; 
-    gap: 24px;
+    gap: 16px;               /* ДЗ-6 для мобілки міняю*/
+    /*gap: 24px;*/           /* ДЗ-6 для мобілки*/
+    flex-direction: column;  /* ДЗ-6 для мобілки*/
+    align-items: center;     /* ДЗ-6 для мобілки*/
 }
 
 .order-form-input {
-    width: 264px;
+    /*idth: 264px;*/          /* ДЗ-6 для мобілки міняю*/
+    width: 100%;              /* ДЗ-6 для мобілки міняю*/
     height: 40px;
     border: 1px solid #ffffff;
     background-color: transparent;
@@ -568,6 +702,10 @@ h2 {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     color: #ffffff;
+}
+
+.order-form-label {
+    width: 100%;         /* ДЗ-6 для мобілки - нове додати*/
 }
 
 /*.footer-div-form-group-p {
@@ -599,7 +737,13 @@ see 511                    }*/
 }
 
 .container-footer-form-group {
-    margin-left: auto;
+    /*margin-left: auto;*/
+}
+
+@media screen and (min-width: 1158px) {
+    .container-footer-div {
+        margin-left: auto; /* ДЗ-6 для десктоп */
+    }
 }
 
 /* вікно на всю ширину основного банера*/
@@ -630,20 +774,21 @@ see 511                    }*/
     /*Абсолютно позиціонуємо елемент відносно предка.*/
     top: 50%; 
     left: 50%; 
-    /*Задаємо елементу властивості top і left 
-    зі значенням 50%, щоб розташувати 
-    верхній лівий кут елемента рівно по центру предка.*/
+        /*Задаємо елементу властивості top і left 
+        зі значенням 50%, щоб розташувати 
+        верхній лівий кут елемента рівно по центру предка.*/
     transform: translate(-50%, -50%) scale(1); 
-    /*Задаємо елементу негативне зміщення (translate) 
-    по 50% висоти і ширини. Це змістить елемент 
-    вгору і вліво і відцентрує всередині предка.*/
-    width: 408px;      /*see Figma - Modal bg*/
-    min-height: 584px; /*see Figma - Modal bg*/
-    background: #fcfcfc; /*see Figma - Modal bg*/
+        /*Задаємо елементу негативне зміщення (translate) 
+        по 50% висоти і ширини. Це змістить елемент 
+        вгору і вліво і відцентрує всередині предка.*/
+    max-width: 408px;          /*ДЗ-6 для мобілки - міняю на max*/
+    width: calc(100% - 32px);  /*ДЗ-6 для мобілки - робимо зазори по 16px*/
+    min-height: 584px;         /*see Figma - Modal bg*/
+    background: #fcfcfc;     /*see Figma - Modal bg*/
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 
     0px 1px 3px rgba(0, 0, 0, 0.12), 
     0px 2px 1px rgba(0, 0, 0, 0.2); /*see Figma - Modal bg*/
-    border-radius: 4px; /*see Figma - Modal bg*/
+    border-radius: 4px;        /*see Figma - Modal bg*/
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
     padding: 72px 24px 24px 24px;
 }
@@ -784,6 +929,7 @@ see 511                    }*/
     line-height: 1.17; 
     letter-spacing: 0.04em; 
     color: #8e8f99; 
+    display: flex;      /*ДЗ-6 для мобілки - додати*/
 }
 /*квадрат для I accept  - під коментарем*/
 .label-checkbox-span {
@@ -800,6 +946,7 @@ see 511                    }*/
     justify-content: center;
     fill: transparent; 
     margin-right: 8px; /*21-12-2023 ментор - відступ від чекбоксу до слів*/
+    flex-shrink: 0;    /*ДЗ-6 для мобілки - додати*/
 }
 
 
