@@ -44,6 +44,13 @@ img {
     0px 2px 1px rgba(46, 47, 66, 0.08), 
     0px 1px 1px rgba(46, 47, 66, 0.16), 
     0px 1px 6px rgba(46, 47, 66, 0.08); 
+    padding: 16px 0;
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        padding: 0;
+    } 
 }
 
 .container {
@@ -63,6 +70,198 @@ img {
         padding: 0 15px;
     }        
 }
+
+/*ДЗ-6 - меню для мобілки*/
+
+.open-menu {              
+    background: none;
+    border: 0;
+    width: 24px; 
+    height: 24px;
+    color: #2f2f37;
+    padding: 0;
+}
+
+.open-menu svg {
+    fill: currentColor;
+}
+
+/*@media screen and (min-width: 768px) {   
+    .container {
+        display: none;        ДЗ-6 - для планшета - забрати бургер-меню
+    } 
+}*/
+
+@media screen and (min-width: 768px) {   
+    .open-menu {
+        display: none;        /*ДЗ-6 - для планшета - забрати бургер-меню*/
+    } 
+}
+
+.mobile-menu {
+    position: absolut;        /*ДЗ-6 - меню для мобілки*/
+    visibility: hidden;       /*ДЗ-6 - меню для мобілки*/
+    opacity: 0;               /*ДЗ-6 - меню для мобілки*/ 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    padding: 72px 16px 40px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between; /*ДЗ-6 - ці 3 списки в різні боки*/
+    gap: 48px;    /*ДЗ-6 - відстань внизу - між іконками соцмереж*/
+    
+}
+/*    list-style-type: none;  Прибираємо маркери */
+.mobile-menu.is-open {
+    visibility: visible;      /*ДЗ-6 - меню для мобілки*/
+    opacity: 1;               /*ДЗ-6 - меню для мобілки*/
+
+}
+
+/*ДЗ-6 - модальне вікно - бургер-меню для мобілки*/
+.mobile-menu-burger {
+    list-style: none;
+    margin-left: 16px;
+    margin-top: 72px;
+    margin-right: 153px;
+    margin-bottom: auto;     /*ДЗ-6 - 2 ul нижні притискаються донизу*/
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.mobile-menu-burger-a {
+    font-weight: 700;   
+    font-size: 36px;
+    line-height: 1.11;  
+    letter-spacing: 0.03em;
+    text-decoration:none;
+    color: #2e2f42;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-burger-a.current {
+    color:#404bbf;
+}
+
+.mobile-menu-contacts {
+    list-style: none;
+    margin-left: 16px;
+    margin-right: 111px;
+    width: 193px;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.mobile-menu-tel,
+.mobile-menu-email {
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal; 
+    line-height: 1.2;
+    letter-spacing: 0.02em;   
+    text-decoration:none;
+    color: #434455;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/*.mobile-menu-tel {
+    color: #4D5AE5;
+}
+
+.mobile-menu-email {
+    color: #434455; 
+}*/
+
+.mobile-menu-tel:hover,
+.mobile-menu-tel:focus,
+.mobile-menu-email:hover,
+.mobile-menu-email:focus {
+    color: #404bbf;    
+}
+
+.mobile-menu-social {   
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.svg-mobile {
+    fill: #f4f4fd;
+}
+
+.mobile-menu-social-li {    
+        width: 40px;
+        height: 40px;
+}
+
+.mobile-menu-social-li-a {
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-social-li-a:hover,
+.mobile-menu-social-li-a:focus {
+    background-color: #404bbf; 
+}
+
+/* кнопка Х - закрити вікно*/
+.mobile-menu-button-close {
+    position: absolute; 
+    top: 24px; 
+    right: 24px;
+    width: 24px;
+    height: 24px; 
+    border-radius: 50%; 
+    display: flex; 
+    padding: 0; 
+    align-items: center; /*для вирівнювання дочірнього елемента по вертикалі*/
+    justify-content: center; /*для вирівнювання дочірнього елемента по горизонталі*/
+    /*background-color: #e7e9fc; колір фону кнопки*/ 
+    background: rgba(231, 233, 252, 0.1);    /*колір прозорий*/
+    border: 1px solid rgba(46, 47, 66, 0.1); /*прозорі межі навколо елемента*/
+    cursor: pointer; /*визначення стилю курсору*/
+    color: #2E2F42;
+}
+
+.mobile-menu-button-close:hover {
+    border: none; 
+} 
+    /*background-color: #404bbf; */
+
+.mobile-menu-button-close:focus {
+    border: none; 
+}
+
+.mobile-menu-button-close-svg {
+    /*transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+    fill: #2e2f42;
+}
+
+/*.mobile-menu-button-close:hover .mobile-menu-button-close-svg {
+    fill: #ffffff;
+}
+
+.mobile-menu-button-close:focus .mobile-menu-button-close-svg {
+    fill: #ffffff;
+}*/
+
+
+
+
+
 
 .logo {
     font-family: "Raleway", sans-serif;
@@ -119,17 +318,6 @@ img {
     width: 100%;
 }
 
-/*.menu::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    height: 4px;
-    background-color: #404bbf;
-    border-radius: 2px;
-    width: 100%;
-}mentor 14-12-2023 */ 
-
 .menu-nav .menu:hover,
 .menu-nav .menu:focus {
     color: #404bbf;    
@@ -155,8 +343,8 @@ img {
     letter-spacing: 0.02em;
     color: #434455;    
     text-decoration:none;
-    padding-top: 24px;    /* 06-12*/
-    padding-bottom: 24px; /* 06-12*/
+    /*padding-top: 24px;      ДЗ-6 забрати */
+    /*padding-bottom: 24px;   ДЗ-6 забрати */
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -178,7 +366,16 @@ img {
 
 .menu-addr {
     display: flex;
-    gap: 40px;
+    flex-direction: column;  /*ДЗ-6 - для планшета*/
+    gap: 12px;               /*ДЗ-6 - для планшета*/
+    /*gap: 40px;*/           /*ДЗ-6 - для планшета закрити*/ 
+}
+
+@media screen and (min-width: 1158px) {
+    .menu-addr {
+        flex-direction: row;  /*ДЗ-6 - для десктоп*/
+        gap: 40px;            /*ДЗ-6 - для десктоп*/
+    }
 }
 
 .about {
@@ -216,7 +413,6 @@ img {
     }
  }    
  
-
 .about-title {
     font-size: 36px;
     font-weight: 700;
@@ -233,10 +429,10 @@ img {
 
 @media screen and (min-width: 768px) {
     .about-title {
-        /*font-size: 56px; є вже для планшета*/
         margin-bottom: 36px;
     }
- }
+}
+
 @media screen and (min-width: 1158px) {
     .about-title {
         font-size: 56px;
@@ -285,11 +481,11 @@ button:focus {
     padding: 96px 0;
  }
 
- @media (min-width: 1158px) {
+@media screen and (min-width: 1158px) {
     .visio {
         padding: 120px 0;
     }
- }
+}
  /*width: 1128px; margin-bottom: 120px; 07.12.2023 перевірка ментора*/
 
 .menu-visio {
@@ -300,8 +496,27 @@ button:focus {
     flex-direction: column; /*ДЗ-6 - для мобілки розміщення в стовпчик*/
 }
 
+@media screen and (min-width: 768px) {
+    .menu-visio {
+        flex-direction: row;   /*ДЗ-6 - для планшета на 2 колонки*/
+        flex-wrap: wrap;       /*ДЗ-6 - для планшета на 2 колонки*/
+    }
+}
+
 .menu-visio-li {
     /*width: calc((100% - 72px) / 4);*/
+}
+
+@media screen and (min-width: 768px) {
+    .menu-visio-li {
+        width: calc((100% - 24px) / 2);   /*ДЗ-6 - для планшета на 2 колонки*/
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .menu-visio-li {
+        width: calc((100% - 72px) / 4);  /*ДЗ-6 - для десктоп*/
+    }
 }
 
 h2 {
@@ -399,9 +614,17 @@ h2 {
 
 .menu-team {
     display: flex;  /*06-12 для розміщення елементів списку по горизонталі в рядок*/
-    gap: 24px;      /*06-12 розмір відступів між елементами списку*/
+    gap: 72px 24px;      /*06-12 розмір відступів між елементами списку*/
     flex-direction: column; /* ДЗ-6 для мобілки і планшета */
     align-items: center;    /* ДЗ-6 для мобілки і планшета */
+}
+
+@media screen and (min-width: 768px) {
+    .menu-team {flex-direction: row;       /* ДЗ-6 для планшета */
+            flex-wrap: wrap;           /* ДЗ-6 для планшета */ 
+            justify-content: center;   /* ДЗ-6 для планшета */
+            gap: 64px 24px;            /* ДЗ-6 для планшета */
+        }
 }
 
 /*заголовок h2*/
@@ -424,6 +647,12 @@ h2 {
     0px 1px 1px rgba(46, 47, 66, 0.16), 
     0px 2px 1px rgba(46, 47, 66, 0.08);  /*визначення тіні для елемента*/
     width: 264px;
+}
+
+@media screen and (min-width: 1158px) {
+    .team-li {
+        width: calc((100% - 72px) / 4);       /* ДЗ-6 для десктоп */
+        }
 }
 
 .team-li-div {
@@ -529,12 +758,29 @@ h2 {
     flex-direction: column;
 }
 
+@media screen and (min-width: 768px) {
+    .menu-port {flex-direction: row;   /* ДЗ-6 для планшета */
+                gap: 72px 24px;        /* ДЗ-6 для планшета */          
+    }
+}
+
 .menu-port-li {
     /*width: calc((100% - 48px) / 3); */
     transition: 
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
-/*11-12-2023*/
+
+@media screen and (min-width: 768px) {
+    .menu-port-li {width: calc((100% - 24px) / 2);    /* ДЗ-6 для планшета */
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .menu-port-li {
+        width: calc((100% - 48px) / 3);       /* ДЗ-6 для десктоп */
+        }
+}
+
 .menu-port-li:hover {
     box-shadow: 
     0px 1px 6px rgba(46, 47, 66, 0.08), 
@@ -593,7 +839,7 @@ h2 {
 }
 
 @media screen and (min-width: 1158px) {
-    .team {
+    .footer {
         padding: 100px 0; /* ДЗ-6 для десктоп */
     }
 }
@@ -622,12 +868,36 @@ h2 {
     row-gap: 72px;
 }
 
+@media screen and (min-width: 768px) {
+    .container-footer {
+        flex-direction: row;    /* ДЗ-6 для планшета*/
+        flex-wrap: wrap;        /* ДЗ-6 для планшета*/
+        padding: 0 108px;       /* ДЗ-6 для планшета*/
+        column-gap: 24px;       /* row-gap: 72px; -було вище ДЗ-6 для планшета*/
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .container-footer {
+        gap: 0;                 /* ДЗ-6 для десктоп*/
+        padding: 0 15px;        /* ДЗ-6 для десктоп*/
+        align-items: baseline;  /* ДЗ-6 для десктоп*/
+    }
+}
+
 .container-footer-div {
     text-align: center;    /* ДЗ-6 для мобілки - тоді лого стане по центру*/
 }
     /*margin: 0 auto;
     max-width: 1158px;
     padding: 0 15px; все це є в класі .container*/
+
+@media screen and (min-width: 768px) {
+    .container-footer-div {
+        width: 264px;    /* ДЗ-6 для планшета*/
+        text-align: left;    /* ДЗ-6 для планшета*/
+    }
+}    
 
 @media screen and (min-width: 1158px) {
     .container-footer-div {
@@ -645,6 +915,13 @@ h2 {
     margin: 0;     
     margin-bottom: 16px;
     text-align: center;    /* ДЗ-6 для мобілки*/
+}
+
+@media screen and (min-width: 768px) {
+    .footer-div-p-social,
+    .footer-div-form-group-p {
+        text-align: left;    /* ДЗ-6 для планшета*/
+    }
 }
 
 .menu-footer-social {
@@ -689,6 +966,12 @@ h2 {
     align-items: center;     /* ДЗ-6 для мобілки*/
 }
 
+@media screen and (min-width: 768px) {
+    .order-form {
+        flex-direction: row;    /* ДЗ-6 для планшета*/
+    }
+}
+
 .order-form-input {
     /*idth: 264px;*/          /* ДЗ-6 для мобілки міняю*/
     width: 100%;              /* ДЗ-6 для мобілки міняю*/
@@ -706,6 +989,12 @@ h2 {
 
 .order-form-label {
     width: 100%;         /* ДЗ-6 для мобілки - нове додати*/
+}
+
+@media screen and (min-width: 768px) {
+    .order-form-label {
+        width: 264px;    /* ДЗ-6 для планшета*/
+    }
 }
 
 /*.footer-div-form-group-p {
@@ -737,12 +1026,12 @@ see 511                    }*/
 }
 
 .container-footer-form-group {
-    /*margin-left: auto;*/
+    /*margin-left: auto; можна вилучити - ДЗ-6 для десктоп */
 }
 
 @media screen and (min-width: 1158px) {
-    .container-footer-div {
-        margin-left: auto; /* ДЗ-6 для десктоп */
+    .container-footer-form-group {
+        margin-left: auto;    /* ДЗ-6 для десктоп */
     }
 }
 
