@@ -121,6 +121,7 @@ img {
 .mobile-menu.is-open {
     visibility: visible;      /*ДЗ-6 - меню для мобілки*/
     opacity: 1;               /*ДЗ-6 - меню для мобілки*/
+    /*pointer-events: auto;*/
     top: 50%;                 /*ДЗ-6 - центрує меню для мобілки*/
     left: 50%;                /*ДЗ-6 - центрує меню для мобілки*/
     transform: translate(-50%, -50%) scale(1); /*ДЗ-6 - центрує меню для мобілки*/
@@ -262,8 +263,13 @@ img {
     fill: #ffffff;
 }*/
 
-
-
+/*ДЗ-6 - для планшета - забрати меню для мобілки*/
+@media screen and (min-width: 768px) {   
+    .mobile-menu {
+        display: none;        
+    } 
+}
+/*кінець меню для мобілки*/
 
 
 
