@@ -99,7 +99,7 @@ img {
 }
 
 .mobile-menu {
-    position: absolut;        /*ДЗ-6 - меню для мобілки*/
+    position: absolute;       /*ДЗ-6 - меню для мобілки*/
     visibility: hidden;       /*ДЗ-6 - меню для мобілки*/
     opacity: 0;               /*ДЗ-6 - меню для мобілки*/ 
     position: fixed;
@@ -112,19 +112,23 @@ img {
     display: flex; 
     flex-direction: column;
     justify-content: space-between; /*ДЗ-6 - ці 3 списки в різні боки*/
-    gap: 48px;    /*ДЗ-6 - відстань внизу - між іконками соцмереж*/
-    
+    gap: 48px;                 /*ДЗ-6 - відстань внизу між іконками соцмереж*/
+    max-width: 320px;          /*ДЗ-6 для мобілки - міняю на max*/
+    min-height: 640px;         /*ДЗ-6 - see Figma*/   
 }
+
 /*    list-style-type: none;  Прибираємо маркери */
 .mobile-menu.is-open {
     visibility: visible;      /*ДЗ-6 - меню для мобілки*/
     opacity: 1;               /*ДЗ-6 - меню для мобілки*/
-
+    top: 50%;                 /*ДЗ-6 - центрує меню для мобілки*/
+    left: 50%;                /*ДЗ-6 - центрує меню для мобілки*/
+    transform: translate(-50%, -50%) scale(1); /*ДЗ-6 - центрує меню для мобілки*/
 }
 
 /*ДЗ-6 - модальне вікно - бургер-меню для мобілки*/
 .mobile-menu-burger {
-    list-style: none;
+    list-style: none;        /*ДЗ-6 - Прибрати маркери в списку*/
     margin-left: 16px;
     margin-top: 72px;
     margin-right: 153px;
