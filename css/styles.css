@@ -105,34 +105,25 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%;  /*ДЗ-6 перекриє весь екран мобілки*/
+    height: 100%; /*ДЗ-6 перекриє весь екран мобілки*/
     background: #fff;
     padding: 72px 16px 40px;
     display: flex; 
     flex-direction: column;
     justify-content: space-between; /*ДЗ-6 - ці 3 списки в різні боки*/
     gap: 48px;                 /*ДЗ-6 - відстань внизу між іконками соцмереж*/
-    max-width: 320px;          /*ДЗ-6 для мобілки - міняю на max*/
-    min-height: 640px;         /*ДЗ-6 - see Figma*/   
 }
 
 /*    list-style-type: none;  Прибираємо маркери */
 .mobile-menu.is-open {
     visibility: visible;      /*ДЗ-6 - меню для мобілки*/
     opacity: 1;               /*ДЗ-6 - меню для мобілки*/
-    /*pointer-events: auto;*/
-    top: 50%;                 /*ДЗ-6 - центрує меню для мобілки*/
-    left: 50%;                /*ДЗ-6 - центрує меню для мобілки*/
-    transform: translate(-50%, -50%) scale(1); /*ДЗ-6 - центрує меню для мобілки*/
 }
 
 /*ДЗ-6 - модальне вікно - бургер-меню для мобілки*/
 .mobile-menu-burger {
     list-style: none;        /*ДЗ-6 - Прибрати маркери в списку*/
-    margin-left: 16px;
-    margin-top: 72px;
-    margin-right: 153px;
     margin-bottom: auto;     /*ДЗ-6 - 2 ul нижні притискаються донизу*/
     display: flex;
     flex-direction: column;
@@ -155,10 +146,6 @@ img {
 
 .mobile-menu-contacts {
     list-style: none;
-    margin-left: 16px;
-    margin-right: 111px;
-    width: 193px;
-    height: 72px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -193,7 +180,7 @@ img {
 .mobile-menu-social {   
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 40px;
 }
 
@@ -391,38 +378,54 @@ img {
 .about {
     background-color: #2E2F42;
     text-align: center;
-    height: 600px;
     padding: 72px 0;
     margin: 0 auto;
-    background-image:  
-    linear-gradient(rgba(46, 47, 66, 0.7), 
-    rgba(46, 47, 66, 0.7)), 
-    url(../images/img-name-320.jpg); /* /*ДЗ-6 - для мобілки , для реалізації фонового зображення з затемненням (багатошаровий фон з градієнтом)   */
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), 
+    url(../images/about/about-320@1x.jpg); /* /*ДЗ-6 - для мобілки , для реалізації фонового зображення з затемненням (багатошаровий фон з градієнтом)   */
     max-width: 1440px; /*визначення ширини секції*/
     background-repeat: no-repeat; /*для уникнення повторення фонового зображення відносно його власної ширини та висоти*/
     background-position: center; /*вирівнювання фонового зображення відносно його власної ширини та висоти*/
     background-size: cover; /*для позиціонування зображення на всю площу фону елемента*/
 }   
 
- @media screen and (min-width: 768px) {
+/*   ДЗ-6  фонове зображення  1х  2х     */
+
+  @media only screen and (max-width: 767px)  and (min-resolution: 192dpi) {
+    .about {
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        url('../images/about/about-320@2x.jpg');
+    }
+  }
+  @media only screen and (min-width: 768px) {
     .about {
         padding: 112px 0;
-        background-image:  
-            linear-gradient(rgba(46, 47, 66, 0.7), 
-            rgba(46, 47, 66, 0.7)), 
-            url('../images/img-name-768.jpg');
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        url('../images/about/about-768@1x.jpg');
     }
- }
- @media screen and (min-width: 1158px) {
+  }
+  @media only screen and (min-width: 768px) and (min-resolution: 192dpi) {
+    .about {
+        padding: 112px 0;
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        url('../images/about/about-768@2x.jpg');
+    }
+  }
+  @media only screen and (min-width: 1158px) {
     .about {
         padding: 188px 0; 
-        background-image:  
-            linear-gradient(rgba(46, 47, 66, 0.7), 
-            rgba(46, 47, 66, 0.7)), 
-            url('../images/img-name.jpg');
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        url('../images/about/about-1158@1x.jpg');
     }
- }    
- 
+  }
+  @media only screen and (min-width: 1158px) and (min-resolution: 192dpi) {
+    .about {
+        padding: 188px 0;
+        background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        url('../images/about/about-1158@2x.jpg');
+    }
+  }
+/*    фонове зображення створено    */
+
 .about-title {
     font-size: 36px;
     font-weight: 700;
@@ -513,9 +516,9 @@ button:focus {
     }
 }
 
-.menu-visio-li {
-    /*width: calc((100% - 72px) / 4);*/
-}
+/*.menu-visio-li {
+    width: calc((100% - 72px) / 4);
+}*/
 
 @media screen and (min-width: 768px) {
     .menu-visio-li {
@@ -565,7 +568,7 @@ h2 {
 
 @media screen and (min-width: 1158px) {
     .visio-ul-li-div {
-        display: block;
+        display: flex;
     }
 }
 
@@ -1035,9 +1038,9 @@ see 511                    }*/
     fill: white;
 }
 
-.container-footer-form-group {
-    /*margin-left: auto; можна вилучити - ДЗ-6 для десктоп */
-}
+/*.container-footer-form-group {
+    /margin-left: auto; можна вилучити - ДЗ-6 для десктоп 
+}*/
 
 @media screen and (min-width: 1158px) {
     .container-footer-form-group {
